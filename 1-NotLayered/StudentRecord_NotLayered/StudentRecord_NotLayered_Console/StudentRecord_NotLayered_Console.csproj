@@ -7,8 +7,8 @@
     <ProjectGuid>{82C5B913-730B-46C0-8086-F7221FE3AC28}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StudentRecord_NotLayered</RootNamespace>
-    <AssemblyName>StudentRecord_NotLayered</AssemblyName>
+    <RootNamespace>StudentRecord_NotLayered_Console</RootNamespace>
+    <AssemblyName>StudentRecord_NotLayered_Console</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

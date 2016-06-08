@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentRecord_NotLayered_WinForms
 {
 	public partial class Form1 : Form
 	{
-		private static StudentRecords _studentRecords = new StudentRecords();
+		private static StudentRecordsManager _studentRecordsManager = new StudentRecordsManager();
 
 		public Form1()
 		{
@@ -21,19 +14,39 @@ namespace StudentRecord_NotLayered_WinForms
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
-			_studentRecords.Add(txtFirstName.Text, txtLastName.Text);
-			dataGridViewStudents.DataSource = null;
-			dataGridViewStudents.DataSource = _studentRecords.GetAllStudents();
-			//MessageBox.Show("Student successfully added");
+			try
+			{
+				_studentRecordsManager.EnrollStudent(txtFirstName.Text, txtLastName.Text);
+				dataGridViewStudents.DataSource = null;
+				dataGridViewStudents.DataSource = _studentRecordsManager.GetAllStudents();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void btnRemove_Click(object sender, EventArgs e)
 		{
-			int indexOfStudentToBeRemoved = int.Parse(txtIndex.Text);
-			_studentRecords.RemoveAt(indexOfStudentToBeRemoved);
+
+			int idOfStudentToBeExpelled;
+			bool isInputAnInteger = int.TryParse(txtIdOfStudentToExpel.Text, out idOfStudentToBeExpelled);
+			if(!isInputAnInteger)
+			{
+				MessageBox.Show("Please enter an integer for the ID of the student to be expelled.");
+				return;
+			}
+
+			Student studentToBeExpelled = _studentRecordsManager.FindStudent(idOfStudentToBeExpelled);
+			if (studentToBeExpelled == null)
+			{
+				MessageBox.Show(string.Format("Student with ID \"{0}\" is not found", idOfStudentToBeExpelled));
+				return;
+			}
+
+			_studentRecordsManager.ExpellStudent(studentToBeExpelled);
 			dataGridViewStudents.DataSource = null;
-			dataGridViewStudents.DataSource = _studentRecords.GetAllStudents();
-			//MessageBox.Show(string.Format("Student \"{0}\" successfully removed\n", indexOfStudentToBeRemoved));
+			dataGridViewStudents.DataSource = _studentRecordsManager.GetAllStudents();
 		}
 	}
 }

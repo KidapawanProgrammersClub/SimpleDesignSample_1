@@ -29,15 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.btnAdd = new System.Windows.Forms.Button();
+			this.btnEnroll = new System.Windows.Forms.Button();
 			this.txtLastName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtFirstName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
-			this.btnRemove = new System.Windows.Forms.Button();
+			this.btnExpel = new System.Windows.Forms.Button();
 			this.label3 = new System.Windows.Forms.Label();
-			this.txtIndex = new System.Windows.Forms.TextBox();
+			this.txtIdOfStudentToExpel = new System.Windows.Forms.TextBox();
 			this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -46,7 +46,7 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.btnAdd);
+			this.groupBox1.Controls.Add(this.btnEnroll);
 			this.groupBox1.Controls.Add(this.txtLastName);
 			this.groupBox1.Controls.Add(this.label2);
 			this.groupBox1.Controls.Add(this.txtFirstName);
@@ -57,15 +57,15 @@
 			this.groupBox1.TabIndex = 6;
 			this.groupBox1.TabStop = false;
 			// 
-			// btnAdd
+			// btnEnroll
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(463, 16);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(75, 23);
-			this.btnAdd.TabIndex = 9;
-			this.btnAdd.Text = "Add";
-			this.btnAdd.UseVisualStyleBackColor = true;
-			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+			this.btnEnroll.Location = new System.Drawing.Point(463, 16);
+			this.btnEnroll.Name = "btnEnroll";
+			this.btnEnroll.Size = new System.Drawing.Size(75, 23);
+			this.btnEnroll.TabIndex = 9;
+			this.btnEnroll.Text = "Enroll";
+			this.btnEnroll.UseVisualStyleBackColor = true;
+			this.btnEnroll.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// txtLastName
 			// 
@@ -101,40 +101,40 @@
 			// 
 			// groupBox2
 			// 
-			this.groupBox2.Controls.Add(this.btnRemove);
+			this.groupBox2.Controls.Add(this.btnExpel);
 			this.groupBox2.Controls.Add(this.label3);
-			this.groupBox2.Controls.Add(this.txtIndex);
+			this.groupBox2.Controls.Add(this.txtIdOfStudentToExpel);
 			this.groupBox2.Location = new System.Drawing.Point(12, 76);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(556, 51);
 			this.groupBox2.TabIndex = 7;
 			this.groupBox2.TabStop = false;
 			// 
-			// btnRemove
+			// btnExpel
 			// 
-			this.btnRemove.Location = new System.Drawing.Point(213, 15);
-			this.btnRemove.Name = "btnRemove";
-			this.btnRemove.Size = new System.Drawing.Size(75, 23);
-			this.btnRemove.TabIndex = 8;
-			this.btnRemove.Text = "Remove";
-			this.btnRemove.UseVisualStyleBackColor = true;
-			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+			this.btnExpel.Location = new System.Drawing.Point(213, 15);
+			this.btnExpel.Name = "btnExpel";
+			this.btnExpel.Size = new System.Drawing.Size(75, 23);
+			this.btnExpel.TabIndex = 8;
+			this.btnExpel.Text = "Expel";
+			this.btnExpel.UseVisualStyleBackColor = true;
+			this.btnExpel.Click += new System.EventHandler(this.btnRemove_Click);
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(13, 20);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(136, 13);
+			this.label3.Size = new System.Drawing.Size(126, 13);
 			this.label3.TabIndex = 7;
-			this.label3.Text = "Index of student to remove:";
+			this.label3.Text = "Index of student to expel:";
 			// 
-			// txtIndex
+			// txtIdOfStudentToExpel
 			// 
-			this.txtIndex.Location = new System.Drawing.Point(152, 17);
-			this.txtIndex.Name = "txtIndex";
-			this.txtIndex.Size = new System.Drawing.Size(41, 20);
-			this.txtIndex.TabIndex = 6;
+			this.txtIdOfStudentToExpel.Location = new System.Drawing.Point(152, 17);
+			this.txtIdOfStudentToExpel.Name = "txtIdOfStudentToExpel";
+			this.txtIdOfStudentToExpel.Size = new System.Drawing.Size(41, 20);
+			this.txtIdOfStudentToExpel.TabIndex = 6;
 			// 
 			// dataGridViewStudents
 			// 
@@ -167,15 +167,15 @@
 		#endregion
 
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button btnAdd;
+		private System.Windows.Forms.Button btnEnroll;
 		private System.Windows.Forms.TextBox txtLastName;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtFirstName;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.Button btnRemove;
+		private System.Windows.Forms.Button btnExpel;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox txtIndex;
+		private System.Windows.Forms.TextBox txtIdOfStudentToExpel;
 		private System.Windows.Forms.DataGridView dataGridViewStudents;
 	}
 }

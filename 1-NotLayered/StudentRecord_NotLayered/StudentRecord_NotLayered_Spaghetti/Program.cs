@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StudentRecord_NotLayered_Console
+namespace StudentRecord_NotLayered_Spaghetti
 {
+	public class Student
+	{
+		public int Id { get; set; }
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+	}
+
 	class Program
 	{
-		private static StudentRecordsManager _studentRecordsManager = new StudentRecordsManager();
+		private static List<Student> _listOfStudents = new List<Student>();
 		private static ConsoleColor _originalConsoleForgroundColor = Console.ForegroundColor;
 
 		static void Main(string[] args)
@@ -34,7 +41,7 @@ namespace StudentRecord_NotLayered_Console
 					case "expel":
 						int idOfStudentToBeExpelled;
 						bool hasOneArgument = inputs.Length >= 2;
-						bool isArgumentAnInteger = int.TryParse(inputs[1], out idOfStudentToBeExpelled);
+						bool isArgumentAnInteger = int.TryParse(inputs[1],out idOfStudentToBeExpelled);
 						if (hasOneArgument && isArgumentAnInteger)
 						{
 							ExpelStudent(idOfStudentToBeExpelled);
@@ -62,41 +69,57 @@ namespace StudentRecord_NotLayered_Console
 
 		private static void EnrollStudent(string firstName, string lastName)
 		{
-			try
+			// Validation
+			if (firstName.ToLower() == "hudas" || lastName.ToLower() == "hudas")
 			{
-				_studentRecordsManager.EnrollStudent(firstName, lastName);
-				DisplayMessage("Student successfully enrolled");
+				DisplayError("A student name cannot have \"Hudas\" in his name.");
+				return;
 			}
-			catch (Exception ex)
-			{
-				DisplayError(ex.Message);
-			}
+
+			Student newStudent = new Student();
+			newStudent.Id = GenerateNewStudentID();
+			newStudent.FirstName = firstName;
+			newStudent.LastName = lastName;
+			_listOfStudents.Add(newStudent);
+			DisplayMessage("Student successfully enrolled");
 		}
 
 		private static void ExpelStudent(int idOfStudentToBeExpelled)
 		{
-			Student studentToBeExpelled = _studentRecordsManager.FindStudent(idOfStudentToBeExpelled);
+			Student studentToBeExpelled = FindStudent(idOfStudentToBeExpelled);
 			if (studentToBeExpelled == null)
 			{
 				DisplayError(string.Format("Student with ID \"{0}\" is not found", idOfStudentToBeExpelled));
 				return;
 			}
 
-			_studentRecordsManager.ExpellStudent(studentToBeExpelled);
+			_listOfStudents.Remove(studentToBeExpelled);
 			DisplayMessage(string.Format("Student with ID \"{0}\" successfully expelled", idOfStudentToBeExpelled));
+		}
+
+		public static Student FindStudent(int studentID)
+		{
+			Student currentStudent = null;
+			foreach (Student stud in _listOfStudents)
+			{
+				if (stud.Id == studentID)
+				{
+					currentStudent = stud;
+				}
+			}
+			return currentStudent;
 		}
 
 		private static void ListStudents()
 		{
 			Console.ForegroundColor = ConsoleColor.Cyan;
-			List<Student> students = _studentRecordsManager.GetAllStudents();
-			if (students.Count <= 0)
+			if (_listOfStudents.Count <= 0)
 			{
 				Console.WriteLine("No student record to display.\n");
 			}
 			else
 			{
-				foreach (Student student in students)
+				foreach (Student student in _listOfStudents)
 				{
 					Console.WriteLine("{0}. {1} {2}", student.Id, student.FirstName, student.LastName);
 				}
@@ -115,6 +138,11 @@ namespace StudentRecord_NotLayered_Console
 	  ?                              -> to display the available commands
 	  QUIT                           -> to end the application");
 			Console.Write("\n\n");
+		}
+
+		private static int GenerateNewStudentID()
+		{
+			return _listOfStudents.Count;
 		}
 
 		private static void DisplayMessage(string message)

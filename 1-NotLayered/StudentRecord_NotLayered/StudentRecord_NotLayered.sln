@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRecord_NotLayered_Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRecord_NotLayered_WinForms", "StudentRecord_NotLayered_WinForms\StudentRecord_NotLayered_WinForms.csproj", "{66C19682-D865-4187-BB6F-AEDEB70060B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRecord_NotLayered_Spaghetti", "StudentRecord_NotLayered_Spaghetti\StudentRecord_NotLayered_Spaghetti.csproj", "{DA01A569-7BA3-4490-A997-294A1CFA2452}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{66C19682-D865-4187-BB6F-AEDEB70060B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66C19682-D865-4187-BB6F-AEDEB70060B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66C19682-D865-4187-BB6F-AEDEB70060B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA01A569-7BA3-4490-A997-294A1CFA2452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA01A569-7BA3-4490-A997-294A1CFA2452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA01A569-7BA3-4490-A997-294A1CFA2452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA01A569-7BA3-4490-A997-294A1CFA2452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
